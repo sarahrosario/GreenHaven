@@ -1,0 +1,318 @@
+/* Global / Layout */
+
+:root{
+  --site-bg: #FAFAF8;
+  --heading-green: #2D5016;
+  --body-green: #6B7C5A;
+  --icon-circle: #E8F0E0;
+  --btn-green: #2D5016;
+  --box-width: 60vw;
+  --mobile-break: 720px;
+}
+
+*{box-sizing: border-box; margin:0; padding:0;}
+html,body{height:100%;}
+body{
+  font-family: "Roboto Serif", serif;
+  font-weight:300;
+  line-height:1.5em;
+  font-size: small;
+  letter-spacing:0.5;
+  color:var(--body-green);
+  background: #fff;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+h2,h3 {
+    color:#2D5016;
+    font-weight: 300;
+}
+/* Centered site box */
+.site{
+  width: var(--box-width);
+  margin: 40px auto;
+  background: var(--site-bg);
+  border-radius: 8px;
+  overflow: visible;
+  position: relative;
+  min-height: 80vh;
+}
+
+/* Make the site width 100% on small screens */
+@media (max-width: 720px){
+  :root{ --box-width: 100vw; }
+  .site{ margin:0; border-radius:0; min-height:100vh;}
+}
+
+/* Header (fixed at top of viewport) */
+.site-header{
+  width: var(--box-width);
+  left: 50%;
+  transform: translateX(-50%);
+  position: fixed;
+  top: 0;
+  background: rgba(255,255,255,0.8);
+  backdrop-filter: blur(2px);
+  border-radius: 8px;
+  padding: 12px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  z-index: 50;
+}
+
+/* On small screens align to full width */
+@media (max-width:720px){
+  .site-header{ width:100%; left:0; transform:none; border-radius:0; top:0; }
+  .site{ padding-top: 72px; } /* keep content visible under fixed header on mobile */
+}
+
+/* Title with leaf icon */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:var(--heading-green);
+  font-weight:400;
+}
+.brand img{ width:26px; height:26px; display:block; }
+
+/* Navigation links aligned right */
+nav a{
+  text-decoration:none;
+  color:var(--body-green);
+  margin-left:18px;
+}
+nav a:hover{ color:var(--heading-green); }
+
+/* Main content container inside the box */
+.site main{
+  padding: 100px 25px 0 25px; /* as requested */
+  /* ensure it sits below header on large screens */
+  margin-top: 20px;
+}
+
+/* Footer */
+.site footer{
+  text-align:center;
+  font-size: smaller;
+  padding: 28px 25px;
+  color:var(--body-green);
+}
+
+/* Intro section */
+.intro{
+  text-align:center;
+  margin-bottom:80px;
+}
+.intro h2{
+  color:var(--heading-green);
+  font-weight:300;
+  margin-bottom:28px;
+  font-size:1.6rem;
+}
+.intro p{ 
+    max-width:720px; 
+    margin:0 auto 28px; 
+    color:var(--body-green); 
+   width: 80%;
+    margin: 20px auto;
+}
+
+.btn{
+  display:inline-block;
+  text-decoration:none;
+  color:#FFFFFF;
+  background:var(--btn-green);
+  padding:15px 20px;
+  border-radius:25px;
+  font-weight:300;
+  cursor:pointer;
+  border:none;
+   
+}
+.btn.light{
+  background:#FFFFFF;
+  color:var(--btn-green);
+  border:none;
+}
+
+/* Banner */
+.banner{
+  width:100%;
+  border-radius:15px;
+  overflow:hidden;
+  margin-bottom:80px;
+}
+.banner img{ width:100%; height:auto; display:block; }
+
+/* Features (three columns horizontally, centered) */
+.features{
+  display:flex;
+  gap:40px;
+  justify-content:space-between;
+  align-items:flex-start;
+  margin-bottom:80px;
+  flex-wrap:wrap;
+}
+.feature{
+  flex:1 1 30%;
+  text-align:center;
+  padding:18px;
+}
+.feature .icon-circle{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  margin:0 auto 12px;
+  background:var(--icon-circle);
+}
+.feature h3{
+  color:var(--heading-green);
+  font-weight:300;
+  margin-bottom:8px;
+}
+.feature p{ color:var(--body-green); }
+
+/* Closing section - special background */
+.closing{
+  background:var(--icon-circle);
+  border-radius:15px;
+  padding:28px;
+  text-align:center;
+  margin-bottom:40px;
+}
+.closing h2{ color:var(--heading-green); margin-bottom:12px; }
+.closing .btn{ 
+    background:#FFFFFF; 
+    color:var(--btn-green); 
+    border-radius:25px; 
+    margin-top: 20px;
+}
+.closing h2{
+    margin-bottom: 20px;
+}
+
+.closing p {
+    width: 70%;
+    margin: auto;
+}
+/* PlantCare page: plants list vertical */
+.plants{
+  display:block;
+  margin-top:20px;
+  margin-bottom:40px;
+}
+
+.plant{
+  display:flex;
+  gap:20px;
+  background:#FFFFFF;
+  border-radius:12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+  padding:18px;
+  margin-bottom:20px;
+  align-items:center;
+}
+.plant img{
+  width:48%;
+  max-width:260px;
+  border-radius:10px;
+  object-fit:cover;
+}
+.plant .plant-info{
+  width:50%;
+  padding: 20px 0 0 30px;
+}
+
+.plant h3{ color:var(--heading-green); margin-bottom:8px; }
+.plant .meta{ 
+    display:flex; 
+    flex-direction: column; 
+    gap:14px; 
+    /* align-items:center;  */
+    margin-top:10px; }
+
+.meta .mini{
+  display:flex;
+  /* align-items:left; */
+  flex-direction: column; 
+  gap:8px;
+  color:var(--body-green);
+}
+.meta .mini p {
+    padding-left: 25px;
+}
+
+.meta .watering{
+    background:url(../images/droplets.svg) no-repeat left center;
+    background-size: 18px;
+}
+
+.meta .light{
+    background:url(../images/sun.svg) no-repeat left center;
+    background-size: 18px;
+}
+
+.meta .thermometer{
+    background:url(../images/thermometer.svg) no-repeat left center;
+    background-size: 18px;
+}
+
+/* .meta img{ width:20px; height:20px; } */
+
+/* Tips page: grid of tips horizontally */
+.tips-grid{
+  display:flex;
+  gap:20px;
+  justify-content:space-between;
+  flex-wrap:wrap;
+  margin-bottom:50px;
+}
+
+
+.tip{
+  flex:1 1 22%;
+  text-align:center;
+  padding:18px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.2);
+}
+
+.tip h3 {
+    margin-bottom: 20px;
+}
+
+
+.tip .icon-circle{ width:58px; height:58px; margin:0 auto 12px; }
+
+/* Summary box on Tips page */
+.summary{
+  background:var(--icon-circle);
+  border-radius:15px;
+  padding:35px;
+  margin-bottom:40px;
+  text-align: center;
+}
+
+.summary h2{
+    margin-bottom: 30px;
+}
+
+/* Responsive adjustments */
+@media (max-width:920px){
+  .feature{ flex-basis:45%; }
+  .tip{ flex-basis:45%; }
+}
+@media (max-width:720px){
+  .features{ gap:18px; }
+  .feature{ flex-basis:100%; text-align:center; }
+  .plant{ flex-direction:column; }
+  .plant img, .plant .plant-info{ width:100%; }
+  .site-header{ position:fixed; top:0; }
+  .site main{ padding-top:92px; } /* keep good spacing under header */
+}
